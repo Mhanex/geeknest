@@ -12,6 +12,7 @@ et-xmlfile==1.1.0
 filelock==3.7.1
 future==0.18.2
 gunicorn==21.2.0
+mysqlclient==2.2.0
 Nuitka==1.0.8
 num2words==0.5.12
 openpyxl==3.1.0
