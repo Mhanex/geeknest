@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <input type="text" name="update" value="{{comment.body}}" />
+        <button><a href="{{request.META.HTTP_REFERER}}" style="text-decoration: none;">Cancel</a></button>
+        <button type="submit"> Update </button>
+    </form>
+
+
+{% endblock content %}
