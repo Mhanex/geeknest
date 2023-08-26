@@ -13,7 +13,7 @@ import os
 
 from pathlib import Path
 
-from decouple import config
+from decouple import Config
 
 
 
@@ -28,10 +28,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('THE_SECRET_KEY')
+SECRET_KEY = Config('THE_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('THE_DEBUG', cast=bool)
+DEBUG = Config('THE_DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1']
 
@@ -190,8 +190,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 
-EMAIL_HOST_USER = config("MY_EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = config("MY_EMAIL_HOST_PASSWORD")
+EMAIL_HOST_USER = Config("MY_EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = Config("MY_EMAIL_HOST_PASSWORD")
 
 EMAIL_FROM = "Temitope@GeekNest"
 EMAIL_PORT = 587
