@@ -1,1 +1,1 @@
-web: gunicorn geeknest.wsgi 
+web: gunicorn geeknest.wsgi --log-file -
