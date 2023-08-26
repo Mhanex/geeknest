@@ -112,7 +112,7 @@ WSGI_APPLICATION = 'geeknest.wsgi.application'
 #Production
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'HOST': 'containers-us-west-144.railway.app',
         'PASSWORD': 'vF4anCugqqDQH7n0t0Mj',
