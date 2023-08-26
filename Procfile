@@ -1,1 +1,0 @@
-web: gunicorn geeknest.wsgi --log-file -
