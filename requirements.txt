@@ -20,7 +20,7 @@ packaging==23.1
 pefile==2022.5.30
 Pillow==9.4.0
 platformdirs==2.5.2
-psycopg2==2.9.3
+psycopg-binary==3.1.10
 pyinstaller==5.4.1
 pyinstaller-hooks-contrib==2022.10
 pynput==1.7.6

@@ -15,7 +15,7 @@ from pathlib import Path
 
 from decouple import Config
 
-
+import psycopg2
 
 
 
