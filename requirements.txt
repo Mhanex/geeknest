@@ -12,6 +12,7 @@ et-xmlfile==1.1.0
 filelock==3.7.1
 future==0.18.2
 gunicorn==21.2.0
+lxml==4.9.3
 mysqlclient==2.2.0
 Nuitka==1.0.8
 num2words==0.5.12
@@ -26,6 +27,7 @@ pyinstaller==5.4.1
 pyinstaller-hooks-contrib==2022.10
 pynput==1.7.6
 python-decouple==3.8
+python-docx==0.8.11
 pytz==2023.3
 pywin32-ctypes==0.2.0
 six==1.16.0
