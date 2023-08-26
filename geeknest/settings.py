@@ -116,12 +116,12 @@ WSGI_APPLICATION = 'geeknest.wsgi.application'
 #Production
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
-        'HOST': 'containers-us-west-189.railway.app',
-        'PASSWORD': 'E18s6Hbd0pkpdtZWFvGZ',
-        'PORT': '6470',
-        'USER': 'root',
+        'HOST': 'containers-us-west-144.railway.app',
+        'PASSWORD': 'vF4anCugqqDQH7n0t0Mj',
+        'PORT': '6042',
+        'USER': 'postgres',
     }
 }
 
@@ -166,7 +166,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static') #for production
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  #for production
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 
