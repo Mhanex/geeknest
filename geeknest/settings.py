@@ -71,6 +71,7 @@ AUTH_USER_MODEL = 'base.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -115,17 +116,6 @@ WSGI_APPLICATION = 'geeknest.wsgi.application'
 #     }
 # }
 
-#Production
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'railway',
-#         'HOST': 'containers-us-west-50.railway.app',
-#         'PASSWORD': 'LUQT8wzDypzlfLtHxjjt',
-#         'PORT': '6401',
-#         'USER': 'root',
-#     }
-# }
 
 #Render Postgres DataBase
 
@@ -176,8 +166,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 MEDIA_URL = 'media/'
