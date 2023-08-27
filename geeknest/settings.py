@@ -13,12 +13,19 @@ import os
 
 from pathlib import Path
 
-import psycopg2
-
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+import environ
+
+
+env = environ.Env()
+
+environ.Env.read_env()
+
+
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -30,7 +37,7 @@ SECRET_KEY = 'django-insecure-8_qnulxv6g=0(@)*4co$qj7=mr56y_8ss_1c82_=nn^=e$#+3e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -108,19 +115,25 @@ WSGI_APPLICATION = 'geeknest.wsgi.application'
 #     }
 # }
 
-
 #Production
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'HOST': 'containers-us-west-144.railway.app',
-        'PASSWORD': 'vF4anCugqqDQH7n0t0Mj',
-        'PORT': '6042',
-        'USER': 'postgres',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'HOST': 'containers-us-west-50.railway.app',
+#         'PASSWORD': 'LUQT8wzDypzlfLtHxjjt',
+#         'PORT': '6401',
+#         'USER': 'root',
+#     }
+# }
 
+#Render Postgres DataBase
+
+import  dj_database_url
+
+DATABASES = {
+    'default': dj_database_url.parse(env('DATABASE_URL'))
+}
 
 
 
@@ -187,8 +200,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 
-EMAIL_HOST_USER = os.environ.get("MY_EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = os.environ.get("MY_EMAIL_HOST_PASSWORD")
+EMAIL_HOST_USER = env('MY_EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('MY_EMAIL_HOST_PASSWORD')
 
 EMAIL_FROM = "Temitope@GeekNest"
 EMAIL_PORT = 587
